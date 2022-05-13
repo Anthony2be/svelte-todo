@@ -3,16 +3,7 @@
 
 	let text = "Hello World";
 
-	let todos = [
-		{
-			text: "Learn Svelte",
-			done: true
-		},
-		{
-			text: "Build an app",
-			done: false
-		}
-	]
+	let todos = []
 
 	onMount(() => {
 		const existingTodos = localStorage.getItem('todos');
@@ -34,11 +25,12 @@
 	function handleKeydown(event) {
 		if (event.key === "Enter") {
 			add();
+			text = "";
 		}/* else if (event.key === "Backspace") {
 			clear();
-		}*/ else if (event.key === "Escape") {
+		} else if (event.key === "Escape") {
 			text = "";
-		}
+		}*/
 	}
 </script>
 
@@ -52,4 +44,5 @@
 	</div>
 	{/each}
 </main>
+
 <svelte:window on:keydown={handleKeydown}/>
