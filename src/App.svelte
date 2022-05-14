@@ -22,6 +22,10 @@
 		localStorage.setItem('todos', JSON.stringify(todos));
 	}
 
+	function save() {
+		localStorage.setItem('todos', JSON.stringify(todos));
+	}
+
 	function handleKeydown(event) {
 		if (event.key === "Enter") {
 			add();
@@ -32,10 +36,11 @@
 			text = "";
 		}*/
 	}
+	$: save();
 </script>
 
 <main>
-	<input type="text" bind:value={text}> <button on:click={add}>Add</button> <button on:click={clear}>Clear Done</button>
+	<input type="text" bind:value={text}> <button on:click={add}>Add</button> <button on:click={clear}>Clear Done</button> <button on:click={save}>Save</button>
 
 	{#each todos as todo}
 	<div>
