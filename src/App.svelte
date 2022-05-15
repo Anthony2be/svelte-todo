@@ -36,7 +36,6 @@
 			text = "";
 		}*/
 	}
-	$: save();
 </script>
 
 <main>
